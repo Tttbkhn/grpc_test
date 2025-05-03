@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package pdf_processor;
+
+option go_package = "./pdf_processor";
+
+// The PDF processing service definition.
+service PdfProcessorService {
+  // Processes a given PDF file and returns structured results.
+  rpc ProcessPdf(ProcessPdfRequest) returns (StructuredProcessPdfResponse) {}
+}
+
+// The request message containing the PDF data.
+message ProcessPdfRequest {
+  string filename = 1;    // Original filename for context/logging
+  bytes pdf_content = 2; // The raw bytes of the PDF file.
+}
+
+// Fully structured response message
+message StructuredProcessPdfResponse {
+  string original_filename = 1;
+  bool save_attempted = 2;        // Was a save operation tried?
+  bool saved_successfully = 3;    // Did the save succeed?
+  string saved_filename_server = 4; // Filename used on the server side (after sanitization)
+  string processing_status = 5;     // Status string (e.g., "simulated_complete", "error")
+  string simulated_text_summary = 6;// Placeholder for actual processed text/summary
+  string error_info = 7;            // Contains error message if something went wrong (e.g., save failed)
+} 
