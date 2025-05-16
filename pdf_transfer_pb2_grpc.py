@@ -38,7 +38,7 @@ class PdfProcessorServiceStub(object):
         self.ProcessPdf = channel.unary_unary(
                 '/pdf_processor.PdfProcessorService/ProcessPdf',
                 request_serializer=pdf__transfer__pb2.ProcessPdfRequest.SerializeToString,
-                response_deserializer=pdf__transfer__pb2.StructuredProcessPdfResponse.FromString,
+                response_deserializer=pdf__transfer__pb2.JSONProcessPdfResponse.FromString,
                 _registered_method=True)
 
 
@@ -59,7 +59,7 @@ def add_PdfProcessorServiceServicer_to_server(servicer, server):
             'ProcessPdf': grpc.unary_unary_rpc_method_handler(
                     servicer.ProcessPdf,
                     request_deserializer=pdf__transfer__pb2.ProcessPdfRequest.FromString,
-                    response_serializer=pdf__transfer__pb2.StructuredProcessPdfResponse.SerializeToString,
+                    response_serializer=pdf__transfer__pb2.JSONProcessPdfResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -89,7 +89,80 @@ class PdfProcessorService(object):
             target,
             '/pdf_processor.PdfProcessorService/ProcessPdf',
             pdf__transfer__pb2.ProcessPdfRequest.SerializeToString,
-            pdf__transfer__pb2.StructuredProcessPdfResponse.FromString,
+            pdf__transfer__pb2.JSONProcessPdfResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+
+class PdfProcessorService2Stub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.ProcessPdf2 = channel.unary_unary(
+                '/pdf_processor.PdfProcessorService2/ProcessPdf2',
+                request_serializer=pdf__transfer__pb2.ProcessPdfRequest2.SerializeToString,
+                response_deserializer=pdf__transfer__pb2.JSONProcessPdfResponse.FromString,
+                _registered_method=True)
+
+
+class PdfProcessorService2Servicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def ProcessPdf2(self, request, context):
+        """Processes a given PDF filepath and returns structured results.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_PdfProcessorService2Servicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'ProcessPdf2': grpc.unary_unary_rpc_method_handler(
+                    servicer.ProcessPdf2,
+                    request_deserializer=pdf__transfer__pb2.ProcessPdfRequest2.FromString,
+                    response_serializer=pdf__transfer__pb2.JSONProcessPdfResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'pdf_processor.PdfProcessorService2', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('pdf_processor.PdfProcessorService2', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class PdfProcessorService2(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def ProcessPdf2(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/pdf_processor.PdfProcessorService2/ProcessPdf2',
+            pdf__transfer__pb2.ProcessPdfRequest2.SerializeToString,
+            pdf__transfer__pb2.JSONProcessPdfResponse.FromString,
             options,
             channel_credentials,
             insecure,

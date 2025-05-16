@@ -71,7 +71,7 @@ func processPdfHandler(w http.ResponseWriter, r *http.Request) {
 		PdfContent: pdfBytes,
 	}
 
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5*60)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*60)
 	defer cancel()
 
 	log.Println("[Go gRPC Client] Sending ProcessPdf request to Python server...")

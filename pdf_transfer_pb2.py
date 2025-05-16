@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12pdf_transfer.proto\x12\rpdf_processor\":\n\x11ProcessPdfRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x13\n\x0bpdf_content\x18\x02 \x01(\x0c\"\xdb\x01\n\x1cStructuredProcessPdfResponse\x12\x19\n\x11original_filename\x18\x01 \x01(\t\x12\x16\n\x0esave_attempted\x18\x02 \x01(\x08\x12\x1a\n\x12saved_successfully\x18\x03 \x01(\x08\x12\x1d\n\x15saved_filename_server\x18\x04 \x01(\t\x12\x19\n\x11processing_status\x18\x05 \x01(\t\x12\x1e\n\x16simulated_text_summary\x18\x06 \x01(\t\x12\x12\n\nerror_info\x18\x07 \x01(\t2t\n\x13PdfProcessorService\x12]\n\nProcessPdf\x12 .pdf_processor.ProcessPdfRequest\x1a+.pdf_processor.StructuredProcessPdfResponse\"\x00\x42\x11Z\x0f./pdf_processorb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12pdf_transfer.proto\x12\rpdf_processor\":\n\x11ProcessPdfRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x13\n\x0bpdf_content\x18\x02 \x01(\x0c\"8\n\x12ProcessPdfRequest2\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x10\n\x08\x66ilepath\x18\x02 \x01(\t\"U\n\x16JSONProcessPdfResponse\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x15\n\rresponse_text\x18\x02 \x01(\t\x12\x12\n\nerror_info\x18\x03 \x01(\t2n\n\x13PdfProcessorService\x12W\n\nProcessPdf\x12 .pdf_processor.ProcessPdfRequest\x1a%.pdf_processor.JSONProcessPdfResponse\"\x00\x32q\n\x14PdfProcessorService2\x12Y\n\x0bProcessPdf2\x12!.pdf_processor.ProcessPdfRequest2\x1a%.pdf_processor.JSONProcessPdfResponse\"\x00\x42\x11Z\x0f./pdf_processorb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,8 +34,12 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._serialized_options = b'Z\017./pdf_processor'
   _globals['_PROCESSPDFREQUEST']._serialized_start=37
   _globals['_PROCESSPDFREQUEST']._serialized_end=95
-  _globals['_STRUCTUREDPROCESSPDFRESPONSE']._serialized_start=98
-  _globals['_STRUCTUREDPROCESSPDFRESPONSE']._serialized_end=317
-  _globals['_PDFPROCESSORSERVICE']._serialized_start=319
-  _globals['_PDFPROCESSORSERVICE']._serialized_end=435
+  _globals['_PROCESSPDFREQUEST2']._serialized_start=97
+  _globals['_PROCESSPDFREQUEST2']._serialized_end=153
+  _globals['_JSONPROCESSPDFRESPONSE']._serialized_start=155
+  _globals['_JSONPROCESSPDFRESPONSE']._serialized_end=240
+  _globals['_PDFPROCESSORSERVICE']._serialized_start=242
+  _globals['_PDFPROCESSORSERVICE']._serialized_end=352
+  _globals['_PDFPROCESSORSERVICE2']._serialized_start=354
+  _globals['_PDFPROCESSORSERVICE2']._serialized_end=467
 # @@protoc_insertion_point(module_scope)
